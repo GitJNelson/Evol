@@ -61,10 +61,12 @@ void CreateOrgo1()
 	cout << "Scale 1 to 10, 1 is slow and grow, 10 is live fast die young: ";
 	cin >> a;
 	a = a * .1;
+	a = fmin(a, 0.5);
 	i = 1 - a;
 	//define vitalthresh
 	cout << "Scale 1 to 10, 1 live on the edge, 10 very cautious: ";
 	cin >> b;
+	b = b * .7; //need to adjust down vitalthresh below the 10x max storage
 	//Define Action Preference
 	cout << "Scale 1 to 10, 10 being the most, Orgo likes to: " << endl;
 	cout << "Have Kids:  ";

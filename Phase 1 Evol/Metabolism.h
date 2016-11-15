@@ -26,12 +26,12 @@ void DailyMet()
 
 		//cost of days living
 		double No1;
-		No1 = OrgoAlive[i].CurAge / 40;  //increase the denominator here to get a longer period to a daily penalty
-		No1 = log(No1) / 6;  //increase the denominator here to get a longer curve, the 0 for a minimum penalty
-		No1 = fmax(0, No1 * 10);
-		double No2;
-		No2 = log(OrgoAlive[i].CurSize);
-		No2 = No2 / 2;
+		No1 = OrgoAlive[i].CurAge / 80;  //increase the denominator here to get a longer period to a daily penalty
+		No1 = log(No1) / 10;  //increase the denominator here to get a longer curve, the 0 for a minimum penalty
+		No1 = fmax(0, No1); 
+		double No2;  //cost of size
+		No2 = log(OrgoAlive[i].CurSize);  
+		No2 = (No2 / 4) * (OrgoAlive[i].CurSize *.7);  //adjustment for current size
 
 
 		OrgoAlive[i].StorGlu = OrgoAlive[i].StorGlu - No1 - No2;
